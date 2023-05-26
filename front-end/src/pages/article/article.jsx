@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import MyComponent from '../../components/headingAnime';
 import './article.scss';
 
@@ -12,29 +13,35 @@ const Article = () => {
     setArticleURL(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Make an API request to the classification service or algorithm
-    // to get the predicted category for the article URL
-    // Replace the `classifyArticle` function with your actual implementation
-    const predictedCategory = classifyArticle(articleURL);
+    try {
+      const response = await axios.post('http://localhost:8080/scrape', { url: articleURL });
+      const { content } = response.data;
 
-    // Update the state with the predicted category
-    setPredictedCategory(predictedCategory);
+      // Make an API request to the classification service or algorithm
+      // to get the predicted category for the article content
+      const predictedCategory = classifyArticle(content);
 
-    // Add the article URL and predicted category to the classification history
-    const entry = { articleURL, predictedCategory };
-    setClassificationHistory([...classificationHistory, entry]);
+      // Update the state with the predicted category
+      setPredictedCategory(predictedCategory);
 
-    // Clear the article URL input
-    setArticleURL('');
+      // Add the article URL, content, and predicted category to the classification history
+      const entry = { articleURL, content, predictedCategory };
+      setClassificationHistory([...classificationHistory, entry]);
 
-    // Show the animation
-    setShowAnimation(true);
+      // Clear the article URL input
+      setArticleURL('');
+
+      // Show the animation
+      setShowAnimation(true);
+    } catch (error) {
+      console.error('Error:', error);
+    }
   };
 
-  const classifyArticle = (articleURL) => {
+  const classifyArticle = (content) => {
     // Perform the actual classification logic or make an API call here
     // and return the predicted category
     return 'Technology';
@@ -43,11 +50,11 @@ const Article = () => {
   return (
     <div>
       <div className="container">
-        < MyComponent />
+        <MyComponent />
     
         <form onSubmit={handleSubmit}>
           <label className="label">
-           Add You Article URL Here:
+            Add Your Article URL Here:
             <textarea
               value={articleURL}
               onChange={handleInputChange}
