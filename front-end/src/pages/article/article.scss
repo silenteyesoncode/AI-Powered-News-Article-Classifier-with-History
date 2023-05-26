@@ -9,17 +9,18 @@
   background-image: url('https://img.freepik.com/free-vector/digital-futuristic-earth-technology-background-with-glowing-lights_1017-23327.jpg?w=1480&t=st=1685082492~exp=1685083092~hmac=2d2a1abb2fee01d57e3c43d6fd637576aefe98f2a1c9f7261af85fa57ce02aec');
   background-size: cover;
   background-position: center;
-  font-family: 'Open Sans', sans-serif;
   height: 100vh;
 
   .heading {
-    font-size: 135px;
+    font-size: 80px;
+    font-family: 'Open Sans';
     color: #ffffff;
   }
 
   .label {
     margin-bottom: 10px;
     font-weight: bold;
+    font-family: 'Open Sans', sans-serif;
     color: #ffffff;
   }
 
@@ -40,6 +41,7 @@
     color: #fff;
     border: none;
     border-radius: 5px;
+    font-family: 'Open Sans', sans-serif;
     cursor: pointer;
     font-size: 16px;
     transition: transform 0.3s ease;

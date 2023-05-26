@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Navbar from '../../components/navbar';
+import MyComponent from '../../components/headingAnime';
 import './article.scss';
 
 const Article = () => {
@@ -42,9 +42,9 @@ const Article = () => {
 
   return (
     <div>
-      <Navbar />
       <div className="container">
-        <h1 className="heading">News Input Page</h1>
+        < MyComponent />
+    
         <form onSubmit={handleSubmit}>
           <label className="label">
             Article URL:

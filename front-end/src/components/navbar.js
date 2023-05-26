@@ -8,11 +8,16 @@ function Navbar() {
   );
 }
 
-
 const styles = {
   navbar: {
-    backgroundColor: '#007bff',
-    padding: '10px 20px',
+    position: 'fixed', // Fix the navbar position
+    top: 0, // Position the navbar at the top of the page
+    left: 0,
+    right: 0,
+    backgroundColor: 'rgba(0, 123, 255, 0.5)',
+    padding: '15px 50px',
+    fontFamily: 'Roboto, sans-serif',
+    zIndex: 999, // Set a high z-index to ensure the navbar appears above other elements
   },
   logo: {
     color: '#fff',
@@ -20,6 +25,5 @@ const styles = {
     margin: 0,
   },
 };
-
 
 export default Navbar;
