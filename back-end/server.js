@@ -62,6 +62,6 @@ function isValidURL(url) {
   // Perform your URL validation logic here
   // For example, you can use a regular expression or a URL validation library
   // Return true if the URL is valid, false otherwise
-  // This is just a simple example, you may need to implement a more robust validation
-  return url.startsWith('http://') || url.startsWith('https://');
+  const pattern = /^(https?:\/\/)?([\w.-]+)\.([a-z]{2,})(\/\S*)?$/i;
+  return pattern.test(url);
 }

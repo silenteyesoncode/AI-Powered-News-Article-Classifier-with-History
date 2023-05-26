@@ -7,7 +7,6 @@ const Article = () => {
   const [articleURL, setArticleURL] = useState('');
   const [predictedCategory, setPredictedCategory] = useState('');
   const [classificationHistory, setClassificationHistory] = useState([]);
-  const [showAnimation, setShowAnimation] = useState(false);
 
   const handleInputChange = (e) => {
     setArticleURL(e.target.value);
@@ -15,31 +14,37 @@ const Article = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     try {
       const response = await axios.post('http://localhost:8080/scrape', { url: articleURL });
       const { content } = response.data;
-
+  
       // Make an API request to the classification service or algorithm
       // to get the predicted category for the article content
       const predictedCategory = classifyArticle(content);
-
+  
       // Update the state with the predicted category
       setPredictedCategory(predictedCategory);
-
+  
       // Add the article URL, content, and predicted category to the classification history
       const entry = { articleURL, content, predictedCategory };
       setClassificationHistory([...classificationHistory, entry]);
-
+  
       // Clear the article URL input
       setArticleURL('');
-
+  
       // Show the animation
       setShowAnimation(true);
     } catch (error) {
       console.error('Error:', error);
+  
+      if (error.response && error.response.status === 400) {
+        // Display an alert for Bad Request
+        alert('Invalid URL. Please enter a valid URL.');
+      }
     }
   };
+  
 
   const classifyArticle = (content) => {
     // Perform the actual classification logic or make an API call here
