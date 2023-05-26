@@ -33,7 +33,7 @@ const MyComponent = props => {
       fontSize: 140,
       color: '#ffffff'
       }}>
-      News Input Page
+      Input Your Article
     </h1>
   );
 };

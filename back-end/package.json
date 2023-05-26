@@ -1,0 +1,16 @@
+{
+  "name": "my-news-classifier",
+  "version": "1.0.0",
+  "description": "A service that takes the scraped article content and predicts",
+  "main": "A service that takes the scraped article content and predicts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.4.0",
+    "cheerio": "^1.0.0-rc.12",
+    "express": "^4.18.2"
+  }
+}

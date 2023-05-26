@@ -47,7 +47,7 @@ const Article = () => {
     
         <form onSubmit={handleSubmit}>
           <label className="label">
-            Article URL:
+           Add You Article URL Here:
             <textarea
               value={articleURL}
               onChange={handleInputChange}
