@@ -6,6 +6,7 @@ const Article = () => {
   const [articleURL, setArticleURL] = useState('');
   const [predictedCategory, setPredictedCategory] = useState('');
   const [classificationHistory, setClassificationHistory] = useState([]);
+  const [showAnimation, setShowAnimation] = useState(false);
 
   const handleInputChange = (e) => {
     setArticleURL(e.target.value);
@@ -28,6 +29,9 @@ const Article = () => {
 
     // Clear the article URL input
     setArticleURL('');
+
+    // Show the animation
+    setShowAnimation(true);
   };
 
   const classifyArticle = (articleURL) => {
@@ -44,20 +48,19 @@ const Article = () => {
         <form onSubmit={handleSubmit}>
           <label className="label">
             Article URL:
-            <input
-              type="text"
+            <textarea
               value={articleURL}
               onChange={handleInputChange}
-              className="input"
+              className="textarea"
             />
           </label>
-          <button type="submit" className="button">
+          <button type="submit" className="button animate-hover">
             Submit
           </button>
         </form>
 
         {predictedCategory && (
-          <div className="predicted-category">
+          <div className="predicted-category animate">
             <h2>Predicted Category: {predictedCategory}</h2>
           </div>
         )}
