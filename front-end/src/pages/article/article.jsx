@@ -33,8 +33,7 @@ const Article = () => {
       // Clear the article URL input
       setArticleURL('');
   
-      // Show the animation
-      setShowAnimation(true);
+
     } catch (error) {
       console.error('Error:', error);
   
