@@ -54,7 +54,9 @@ const Article = () => {
   return (
     <div>
       <div className="container">
-        <MyComponent />
+        <div style={{paddingTop: "10vh" }} >
+          <MyComponent />
+        </div>
     
         <form onSubmit={handleSubmit}>
           <label className="label">

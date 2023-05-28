@@ -30,7 +30,7 @@ const MyComponent = props => {
     <h1 className="ml12" style={{ 
       fontFamily: 'Roboto',
       fontWeight: 100 ,
-      fontSize: 140,
+      fontSize: 150,
       color: '#ffffff'
       }}>
       Input Your Article
