@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { auth } from './firebase/firebase-utilities'; // Import the necessary Firebase services from your Firebase configuration file
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { auth } from './firebase/firebase-utilities';
 import Article from './pages/article/article';
 import Navbar from './components/navbar';
-import SignUp from "./pages/Auth/signUp";
+import SignUp from './pages/Auth/sign-up/signUp';
+import SignIn from './pages/Auth/sign-in/sign-in';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -10,40 +12,37 @@ function App() {
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user) {
-        // User is signed in
         setUser(user);
       } else {
-        // User is signed out
         setUser(null);
       }
     });
 
     return () => {
-      unsubscribe(); // Unsubscribe from the onAuthStateChanged listener when the component unmounts
+      unsubscribe();
     };
   }, []);
 
   const handleLogout = () => {
-    auth.signOut()
+    auth
+      .signOut()
       .then(() => {
-        // Logout successful
         setUser(null);
       })
       .catch((error) => {
         console.log('Error logging out:', error);
-        // Handle logout error if needed
       });
   };
 
   return (
-    <>
+    <Router>
       <Navbar user={user} handleLogout={handleLogout} />
-      {user ? (
-        <Article />
-      ) : (
-        <SignUp />
-      )}
-    </>
+      <Routes>
+        <Route path="/" element={user ? <Article /> : <SignUp />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/signin" element={<SignIn />} />
+      </Routes>
+    </Router>
   );
 }
 

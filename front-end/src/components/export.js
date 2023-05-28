@@ -1,8 +1,10 @@
-import SignUpAnim from './signUpAnime';
+import SignUpAnime from './signUpAnime';
+import SignInAnime from './signInAnime';
 import MyComponent from './headingAnime';
 
 
 export {
-  SignUpAnim,
-  MyComponent
+  SignUpAnime,
+  MyComponent,
+  SignInAnime
 }

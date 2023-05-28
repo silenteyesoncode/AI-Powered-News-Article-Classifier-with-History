@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import anime from 'animejs';
 
-const SignUpAnime = props => {
+const SignInAnime = props => {
   useEffect(() => {
     var textWrapper = document.querySelector('.ml12');
     textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
@@ -33,9 +33,9 @@ const SignUpAnime = props => {
       fontSize: 150,
       color: '#ffffff'
       }}>
-      Sign Up
+      Sign In
     </h1>
   );
 };
 
-export default SignUpAnime;
+export default SignInAnime;

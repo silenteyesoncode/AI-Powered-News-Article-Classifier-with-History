@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import { auth, createUserWithEmailAndPassword } from '../../firebase/firebase-utilities';
-import {SignUpAnim} from '../../components/export';
-import './SignUp.scss';
-// import signupIllustration from '../../assets/illu.gif'; 
+import { auth, signInWithEmailAndPassword } from '../../../firebase/firebase-utilities';
+import { SignInAnime } from '../../../components/export';
+import './signIn.scss';
 
-const SignUp = () => {
+const SignInPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -12,22 +11,18 @@ const SignUp = () => {
     event.preventDefault();
     console.log(email, password);
   
-    createUserWithEmailAndPassword(auth, email, password)
+    signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        // User signed up successfully
+        // User signed in successfully
         const user = userCredential.user;
-        console.log('User signed up:', user);
-  
-
+        console.log('User signed in:', user);
       })
       .catch((error) => {
-        console.log('Error signing up:', error);
-        // Handle signup error if needed
+        console.log('Error signing in:', error);
+        // Handle sign in error if needed
       });
   };
   
-
-
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
   };
@@ -37,9 +32,9 @@ const SignUp = () => {
   };
 
   return (
-    <div className="signup-container">
-      <div className="signup-form">
-      < SignUpAnim />
+    <div className="signIn-container">
+      <div className="signIn-form">
+        <SignInAnime />
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label className="label" htmlFor="email">
@@ -65,7 +60,7 @@ const SignUp = () => {
               className="input"
             />
           </div>
-          <button  type="submit" className="button animate-hover">
+          <button type="submit" className="button animate-hover">
             Submit
           </button>
         </form>
@@ -74,4 +69,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default SignInPage;

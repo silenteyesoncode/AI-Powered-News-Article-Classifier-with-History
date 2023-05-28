@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import logoImage from '../assets/logo.png'; // Replace './logo.png' with the path to your logo image
 import './navbar.scss';
 
@@ -20,7 +21,11 @@ const Navbar = (props) => {
             </button>
           </>
         ) : (
-          <p className="user-text">Please sign in</p>
+          <>
+            <p className="user-text">
+              Please <Link to="/signin">sign in</Link> or <Link to="/signup">sign up</Link>
+            </p>
+          </>
         )}
       </div>
     </nav>
