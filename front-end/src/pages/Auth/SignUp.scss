@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
+
+.signup-container {
+  display: flex;
+  padding-left: 50px;
+  height: 100vh;
+  background-image: url('https://i.ibb.co/5R6cgts/233.jpg');
+  background-size: cover;
+  background-position: center;
+
+  .signup-form {
+    // width: 40%;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+    // margin-left: 50px;
+    // background: linear-gradient( 140deg, #1a2838, #4c2d27);
+
+    h2.signup-label {
+      font-family: 'Roboto', sans-serif;
+      font-weight: 100;
+      font-size: 150px;
+      color: #fff;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+
+      .label {
+        margin-bottom: 10px;
+        font-weight: lighter;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 20px;
+        color: #ffffff;
+      }
+
+      .input {
+        font-size: 20px;
+        width: 100%;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        margin-top: 5px;
+      }
+    }
+
+    .button {
+      margin-top: 10px;
+      padding: 10px 50px;
+      background: linear-gradient( 90deg, #007bff, #ff401b);
+      color: #030303;
+      border: none;
+      border-radius: 5px;
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 18px;
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  .signup-illustration {
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+  }
+}
