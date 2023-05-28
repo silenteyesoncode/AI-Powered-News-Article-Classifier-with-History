@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { auth, createUserWithEmailAndPassword } from '../../../firebase/firebase-utilities';
+import { auth, createUserWithEmailAndPassword ,db, collection, addDoc } from '../../../firebase/firebase-utilities';
 import { SignUpAnime } from '../../../components/export';
 import './SignUp.scss';
 
@@ -13,14 +13,23 @@ const SignUp = () => {
     console.log(email, password, username);
 
     createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
+      .then(async (userCredential) => {
         // User signed up successfully
         const user = userCredential.user;
         console.log('User signed up:', user);
+
+            const docRef = await addDoc(collection(db, "users"), {
+              username: username,
+              email: email,
+              password: password,
+            });
+            console.log("Document written with ID: ", docRef.id);
+        
       })
       .catch((error) => {
-        console.log('Error signing up:', error);
-        // Handle signup error if needed
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorCode, errorMessage);
       });
   };
 
