@@ -37,10 +37,21 @@ function App() {
   return (
     <Router>
       <Navbar user={user} handleLogout={handleLogout} />
-      <Routes>
-        <Route path="/" element={user ? <Article /> : <SignIn/> } />
-        <Route path="/signup" element={<SignUp />} />
+      {user ? (
+        <Routes>
+        <Route path="/" element={<Article/>  } />
+        <Route path="/signup" element={<Article/>  } />
       </Routes>
+      ) : (
+        <Routes>
+          <Route path="/" element={ <SignIn/> } />
+          <Route path="/signup" element={<SignUp/> } />
+      </Routes>
+      ) }
+      {/* <Routes>
+        <Route path="/" element={user ? <Article /> : <SignIn/> } />
+        <Route path="/signup" element={user ? <Article /> : <SignUp/> } />
+      </Routes> */}
     </Router>
   );
 }

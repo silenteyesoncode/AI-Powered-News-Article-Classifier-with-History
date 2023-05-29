@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import logoImage from '../assets/logo.png'; // Replace './logo.png' with the path to your logo image
+import logoImage from '../assets/logo.png'; 
 import './navbar.scss';
 
 const Navbar = (props) => {

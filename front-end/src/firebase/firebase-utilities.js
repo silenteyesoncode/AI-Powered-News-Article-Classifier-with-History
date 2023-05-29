@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getAuth, createUserWithEmailAndPassword ,signInWithEmailAndPassword , onAuthStateChanged  } from "firebase/auth";
+import { getAuth, updateProfile, createUserWithEmailAndPassword ,signInWithEmailAndPassword , onAuthStateChanged  } from "firebase/auth";
 import { getDatabase } from "firebase/database";
 import { getFirestore, collection, addDoc , setDoc , doc , getDoc , getDocs } from "firebase/firestore";
 
@@ -29,12 +29,14 @@ const db = getFirestore(app);
 
 export  {
   auth,
+  database,
   db,
   getDoc,
   getDocs,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   onAuthStateChanged,
+  updateProfile,
   collection, 
   addDoc,
   setDoc,

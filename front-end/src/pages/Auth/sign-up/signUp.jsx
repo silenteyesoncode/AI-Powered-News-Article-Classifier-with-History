@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { auth, createUserWithEmailAndPassword ,db, collection, addDoc } from '../../../firebase/firebase-utilities';
+import { auth, createUserWithEmailAndPassword ,db, collection, addDoc ,updateProfile} from '../../../firebase/firebase-utilities';
 import { SignUpAnime } from '../../../components/export';
 import './SignUp.scss';
 
@@ -16,7 +16,9 @@ const SignUp = () => {
       .then(async (userCredential) => {
         // User signed up successfully
         const user = userCredential.user;
-        console.log('User signed up:', user);
+
+    // Update the user's profile with the displayName
+    await updateProfile(user, { displayName: username });
 
             const docRef = await addDoc(collection(db, "users"), {
               username: username,
