@@ -38,9 +38,8 @@ function App() {
     <Router>
       <Navbar user={user} handleLogout={handleLogout} />
       <Routes>
-        <Route path="/" element={user ? <Article /> : <SignUp />} />
+        <Route path="/" element={user ? <Article /> : <SignIn/> } />
         <Route path="/signup" element={<SignUp />} />
-        <Route path="/signin" element={<SignIn />} />
       </Routes>
     </Router>
   );
