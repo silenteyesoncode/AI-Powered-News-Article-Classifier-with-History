@@ -6,6 +6,7 @@ import './article.scss';
 const Article = () => {
   const [articleURL, setArticleURL] = useState('');
   const [predictedCategory, setPredictedCategory] = useState('');
+  const [articleContent, setArticleContent] = useState('');
   const [classificationHistory, setClassificationHistory] = useState([]);
 
   const handleInputChange = (e) => {
@@ -21,11 +22,12 @@ const Article = () => {
   
       // Make an API request to the classification service or algorithm
       // to get the predicted category for the article content
-      const predictedCategory = classifyArticle(content);
+      const predictedCategory = await classifyArticle(content);
   
       // Update the state with the predicted category
       setPredictedCategory(predictedCategory);
-  
+      setArticleContent(content);
+
       // Add the article URL, content, and predicted category to the classification history
       const entry = { articleURL, content, predictedCategory };
       setClassificationHistory([...classificationHistory, entry]);
@@ -45,10 +47,19 @@ const Article = () => {
   };
   
 
-  const classifyArticle = (content) => {
-    // Perform the actual classification logic or make an API call here
-    // and return the predicted category
-    return 'Technology';
+  const classifyArticle = async (content) => {
+    try {
+      const response = await axios.post('http://localhost:8080/deep-categorization', { text: content });
+      const { category_list } = response.data;
+  
+      // Get the label of the first category in the list
+      const predictedCategory = category_list[0].label;
+  
+      return predictedCategory;
+    } catch (error) {
+      console.error('Error:', error);
+      throw new Error('An error occurred during deep categorization');
+    }
   };
 
   return (
@@ -75,6 +86,7 @@ const Article = () => {
         {predictedCategory && (
           <div className="predicted-category animate">
             <h2>Predicted Category: {predictedCategory}</h2>
+            <p>{articleContent}</p>
           </div>
         )}
 
