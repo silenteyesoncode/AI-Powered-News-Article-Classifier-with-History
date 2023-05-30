@@ -3,8 +3,8 @@ const fetch = require('node-fetch');
 async function runDeepCategorization() {
   const formdata = new FormData();
   formdata.append("key", "d8c22050f0ec78662cf2649b9a120897");
-  formdata.append("txt", "YOUR TEXT HERE");
-  formdata.append("model", "MODEL NAME HERE"); // like IAB_2.0_en
+  formdata.append("txt", "YOUR TEXT HERE"); //Article To Add
+  formdata.append("model", "IAB_2.0-tier4"); 
 
   const requestOptions = {
     method: 'POST',
