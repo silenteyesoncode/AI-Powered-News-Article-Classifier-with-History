@@ -4,7 +4,7 @@
   "description": "A service that takes the scraped article content and predicts",
   "main": "A service that takes the scraped article content and predicts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --detectOpenHandles"
   },
   "author": "",
   "license": "ISC",
@@ -20,5 +20,8 @@
     "puppeteer": "^20.4.0",
     "superagent": "^8.0.9",
     "unfluff": "^3.2.0"
+  },
+  "devDependencies": {
+    "jest": "^29.5.0"
   }
 }

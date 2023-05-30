@@ -3,6 +3,8 @@ const cors = require('cors');
 const { gotScraping } = require('got-scraping');
 const cheerio = require('cheerio');
 
+const { runDeepCategorization } = require('./classify');
+
 const app = express();
 const port = 8080;
 
@@ -47,6 +49,21 @@ app.post('/scrape', async (req, res) => {
 
     // Return the response object
     res.json(responseObj);
+  } catch (error) {
+    console.error('Error:', error);
+    res.status(500).json({ error: 'An error occurred' });
+  }
+});
+
+app.post('/deep-categorization', async (req, res) => {
+  try {
+    const { text } = req.body;
+
+    // Run deep categorization
+    const deepCategorizationResult = await runDeepCategorization(text);
+
+    // Return the deep categorization result
+    res.json(deepCategorizationResult);
   } catch (error) {
     console.error('Error:', error);
     res.status(500).json({ error: 'An error occurred' });
