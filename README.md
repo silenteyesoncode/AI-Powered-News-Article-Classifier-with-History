@@ -20,8 +20,6 @@ A service that takes the scraped article content and predicts its category using
 ### Data Persistence Service
 A service that stores each classification request and its result in a database and retrieves the history of past requests when needed.
 
-## Deployment
-The applicant can use any resources available to them to develop and deploy the application. The applicant should provide a URL to the deployed application for evaluation.
 
 
 
