@@ -1,7 +1,10 @@
 import { initializeApp } from "firebase/app";
-import { getAuth, updateProfile, createUserWithEmailAndPassword ,signInWithEmailAndPassword , onAuthStateChanged  } from "firebase/auth";
+import { getAuth, updateProfile, createUserWithEmailAndPassword ,signInWithEmailAndPassword , onAuthStateChanged,  } from "firebase/auth";
 import { getDatabase } from "firebase/database";
-import { getFirestore, collection, addDoc , setDoc , doc , getDoc , getDocs } from "firebase/firestore";
+import { getFirestore, collection, addDoc , setDoc , doc , getDoc , getDocs ,  query,
+  where,
+  orderBy,
+  limit, } from "firebase/firestore";
 
 
 
@@ -39,6 +42,10 @@ export  {
   updateProfile,
   collection, 
   addDoc,
+  query,
+  where,
+  orderBy,
+  limit, 
   setDoc,
   doc
 }

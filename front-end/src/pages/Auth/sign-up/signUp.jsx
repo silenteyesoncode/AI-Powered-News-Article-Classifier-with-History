@@ -10,7 +10,7 @@ const SignUp = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(email, password, username);
+    // console.log(email, password, username);
 
     createUserWithEmailAndPassword(auth, email, password)
       .then(async (userCredential) => {
@@ -24,6 +24,7 @@ const SignUp = () => {
               username: username,
               email: email,
               password: password,
+              uid: user.uid
             });
             console.log("Document written with ID: ", docRef.id);
         

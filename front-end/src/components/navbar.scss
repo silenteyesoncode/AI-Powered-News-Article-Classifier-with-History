@@ -35,6 +35,10 @@
     display: flex;
     align-items: center;
 
+    .dropdown {
+      position: relative;
+    }
+
     .user-text {
       color: #fff;
       font-size: 16px;
@@ -44,7 +48,32 @@
     .user-text a {
       color: #ffffff;
     }
-    
+
+    .dropdown-button-group {
+      display: flex;
+      align-items: center;
+    }
+
+    .dropdown-button {
+      padding: 5px;
+      background-color: transparent;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      background-color: #fff;
+      padding: 10px;
+      list-style-type: none;
+      margin: 0;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      border-radius: 3px;
+    }
 
     .logout-button {
       padding: 5px 10px;

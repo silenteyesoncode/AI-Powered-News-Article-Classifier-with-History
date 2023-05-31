@@ -1,13 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState , useEffect } from 'react';
 import axios from 'axios';
 import MyComponent from '../../components/headingAnime';
+import {  
+  db, 
+  doc, 
+  auth ,
+  collection ,
+  addDoc,
+  getDocs ,  
+  query,
+  where,
+  orderBy,
+  limit,  
+} from '../../firebase/firebase-utilities';
 import './article.scss';
 
 const Article = () => {
+
   const [articleURL, setArticleURL] = useState('');
   const [predictedCategory, setPredictedCategory] = useState('');
   const [articleContent, setArticleContent] = useState('');
-  const [classificationHistory, setClassificationHistory] = useState([]);
 
   const handleInputChange = (e) => {
     setArticleURL(e.target.value);
@@ -15,7 +27,7 @@ const Article = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+    
     try {
       const response = await axios.post('http://localhost:8080/scrape', { url: articleURL });
       const { content } = response.data;
@@ -27,15 +39,55 @@ const Article = () => {
       // Update the state with the predicted category
       setPredictedCategory(predictedCategory);
       setArticleContent(content);
-
+  
       // Add the article URL, content, and predicted category to the classification history
       const entry = { articleURL, content, predictedCategory };
-      setClassificationHistory([...classificationHistory, entry]);
+      // setClassificationHistory([...classificationHistory, entry]);
   
       // Clear the article URL input
       setArticleURL('');
   
+        // Get the UID of the currently logged-in user
+        const user = auth.currentUser;
+        let currentUserId = null; // Log the current user's document ID
 
+        try {
+          // Reference to the "users" collection
+          const usersCollectionRef = collection(db, 'users');
+
+          // Retrieve all documents from the "users" collection
+          const querySnapshot = await getDocs(usersCollectionRef);
+
+          // Iterate over the documents and find the document ID for the current user
+          querySnapshot.forEach((doc) => {
+            const userData = doc.data();
+            if (userData.uid === user.uid) {
+              currentUserId = doc.id;
+            }
+          });
+
+          // Store the response in Firestore with the user's UID as the document ID
+          const userDocRef = doc(db, "users", currentUserId); // Reference to the user's document
+          const newDocRef = await addDoc(collection(userDocRef, 'collection'), {
+            articleURL: articleURL,
+            content: content,
+            predictedCategory: predictedCategory,
+          });
+
+          const collectionSnapshot = await getDocs(collection(userDocRef, 'collection'));
+
+            // Iterate over the documents in the "collection" subcollection
+              collectionSnapshot.forEach((doc) => {
+                // Access the data of each document
+                const data = doc.data();
+                console.log('Document ID:', doc.id, 'Data:', data);
+                // You can do further processing or store the data in an array if needed
+              });
+
+          console.log('Document written with ID:', newDocRef.id);
+        } catch (error) {
+          console.error('Error storing document:', error);
+        }
     } catch (error) {
       console.error('Error:', error);
   
@@ -90,18 +142,6 @@ const Article = () => {
           </div>
         )}
 
-        {classificationHistory.length > 0 && (
-          <div className="history">
-            <h2>Classification History:</h2>
-            <ul>
-              {classificationHistory.map((entry, index) => (
-                <li key={index}>
-                  Article URL: {entry.articleURL} | Predicted Category: {entry.predictedCategory}
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
       </div>
     </div>
   );
