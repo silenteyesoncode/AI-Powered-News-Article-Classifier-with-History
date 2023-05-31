@@ -34,6 +34,10 @@ app.post('/scrape', async (req, res) => {
         $(element).remove();
       }
     });
+    // Remove unwanted iframes
+        $('iframe').each((index, element) => {
+          $(element).remove();
+        });
 
     // Remove additional script tags or unwanted JavaScript code
     $('script').remove();
