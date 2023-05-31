@@ -32,7 +32,7 @@ const Article = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:8080/scrape', { url: articleURL });
+      const response = await axios.post('https://my-news-classifier.onrender.com/scrape', { url: articleURL });
       const { content } = response.data;
   
       // Make an API request to the classification service or algorithm
@@ -105,7 +105,7 @@ const Article = () => {
 
   const classifyArticle = async (content) => {
     try {
-      const response = await axios.post('http://localhost:8080/deep-categorization', { text: content });
+      const response = await axios.post('https://my-news-classifier.onrender.com/deep-categorization', { text: content });
       const { category_list } = response.data;
   
       // Get the label of the first category in the list

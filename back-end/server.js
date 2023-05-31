@@ -2,14 +2,16 @@ const express = require('express');
 const cors = require('cors');
 const { gotScraping } = require('got-scraping');
 const cheerio = require('cheerio');
-
+const html = require('./html');
 const { runDeepCategorization } = require('./classify');
 
+const port = process.env.PORT || 8080;
 const app = express();
-const port = 8080;
 
 app.use(express.json());
 app.use(cors()); // Enable CORS for all routes
+
+app.get("/", (req, res) => res.type('html').send(html));
 
 app.post('/scrape', async (req, res) => {
   try {
