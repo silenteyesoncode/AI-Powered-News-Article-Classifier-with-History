@@ -21,6 +21,9 @@
     "superagent": "^8.0.9",
     "unfluff": "^3.2.0"
   },
+  "engines": {
+    "node": ">=15"
+  },
   "devDependencies": {
     "jest": "^29.5.0"
   }
