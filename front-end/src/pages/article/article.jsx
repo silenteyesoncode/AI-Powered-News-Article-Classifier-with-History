@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import MyComponent from '../../components/headingAnime';
+import { MyComponent , Loading } from '../../components/export';
 import {  
   db, 
   doc, 
@@ -18,6 +18,7 @@ const Article = () => {
   const [articleContent, setArticleContent] = useState('');
   const [classificationHistory, setClassificationHistory] = useState([]);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(false); 
 
   const handleInputChange = (e) => {
     setArticleURL(e.target.value);
@@ -30,11 +31,12 @@ const Article = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsLoading(true); // Set loading state to true
 
     try {
       const response = await axios.post('https://my-news-classifier.onrender.com/scrape', { url: articleURL });
       const { content } = response.data;
-  
+
       // Make an API request to the classification service or algorithm
       // to get the predicted category for the article content
       const predictedCategory = await classifyArticle(content);
@@ -107,6 +109,8 @@ const Article = () => {
     try {
       const response = await axios.post('https://my-news-classifier.onrender.com/deep-categorization', { text: content });
       const { category_list } = response.data;
+      
+      setIsLoading(false) // set loading state to false 
   
       // Get the label of the first category in the list
       const predictedCategory = category_list[0].label;
@@ -122,10 +126,10 @@ const Article = () => {
     <div>
       <div className="container">
         <div style={{paddingTop: "10vh" }} >
-          <MyComponent />
+        { !isLoading ?  <MyComponent /> : <Loading /> }
         </div>
     
-        <form onSubmit={handleSubmit}>
+        { !isLoading ? (<form onSubmit={handleSubmit}>
           <label className="label">
             Add Your Article URL Here:
             <textarea
@@ -138,6 +142,11 @@ const Article = () => {
             Submit
           </button>
         </form>
+        ) : (
+          <div>
+          </div>
+         )
+        }
 
         {predictedCategory && (
           <div className="predicted-category animate" >
