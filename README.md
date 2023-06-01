@@ -1,6 +1,6 @@
 # AI-Powered News Article Classifier with History
 
-# [Project Live](https://main--jolly-sprinkles-608702.netlify.app/signup)
+# [Project Live](https://main--jolly-sprinkles-608702.netlify.app)
 
 ## Objective
 The goal of this project is to create a web application that classifies news articles into categories and keeps track of past classification requests. The application should take a news article URL as input, scrape the article content, predict its category using an AI model, store the request and the prediction in a database, and display the predicted category as well as a history of past classification requests.
