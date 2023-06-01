@@ -39,14 +39,14 @@ function App() {
       <Navbar user={user} handleLogout={handleLogout} />
       {user ? (
         <Routes>
-          <Route path="/" element={<Article/>  } />
+          <Route exact path="/" element={<Article/>  } />
           <Route path="/signup" element={<Article/>  } />
         </Routes>
       ) : (
         <Routes>
           <Route path="/" element={ <SignIn/> } />
           <Route path="/signup" element={<SignUp/> } />
-      </Routes>
+        </Routes>
       ) }
     </Router>
   );

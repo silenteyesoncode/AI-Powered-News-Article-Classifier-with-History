@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { auth, createUserWithEmailAndPassword ,db, collection, addDoc ,updateProfile} from '../../../firebase/firebase-utilities';
 import { SignUpAnime } from '../../../components/export';
 import './SignUp.scss';
 
 const SignUp = () => {
+  const navigate = useNavigate()
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [username, setUsername] = useState('');
@@ -11,6 +13,7 @@ const SignUp = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     // console.log(email, password, username);
+
 
     createUserWithEmailAndPassword(auth, email, password)
       .then(async (userCredential) => {
@@ -27,12 +30,16 @@ const SignUp = () => {
               uid: user.uid
             });
             console.log("Document written with ID: ", docRef.id);
+
+        // Redirect to the root path ("/")
+        navigate('/');
         
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
         console.log(errorCode, errorMessage);
+        alert(errorMessage);
       });
   };
 
