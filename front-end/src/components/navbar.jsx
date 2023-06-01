@@ -15,7 +15,7 @@ const Navbar = (props) => {
     <nav className="navbar">
       <div className="logo-container">
         <img src={logoImage} alt="Logo" className="logo" />
-        <h1 className="logo-text">My News Classifier</h1>
+        <h1 className="logo-text">The News Classifier</h1>
       </div>
       <div className="user-container">
         {user ? (
