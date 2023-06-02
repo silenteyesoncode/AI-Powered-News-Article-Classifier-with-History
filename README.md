@@ -1,5 +1,7 @@
 # AI-Powered News Article Classifier with History
 
+![Screenshot 2023-06-02 141022](https://github.com/silenteyesoncode/AI-Powered-News-Article-Classifier-with-History/assets/46851135/5860c4e1-9f47-48c8-984a-4c6b1cea40a4)
+
 # [Project Live](https://jolly-sprinkles-608702.netlify.app)
 
 ## Auther 
