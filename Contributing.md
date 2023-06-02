@@ -22,19 +22,19 @@ If you're interested in making changes to the project's code, please do so. In o
 
 ●Click the "Fork" button at the top right corner of this repository's page.
 
-![Alt text](./images/fork.png)
+<img src="./images/fork.png"  width="1000" >
 
 ### Step 2:Clone the forked repository
 
 ●Go to your GitHub account and open the forked repository.
 ●Click the "Code" button and then the copy icon to copy the repository's URL.
 
-![Alt text](./images/code.png)
+<img src="./images/code.png"  width="300" >
 
 ●Open a terminal and run the following command:
 git clone "url you just copied"
 
-![Alt text](./images/copy.png)
+<img src="./images/copy.png"  width="300" >
 
 The command will look something like this :
 git clone https://github.com/{your github user name}/AI-Powered-News-Article-Classifier-with-History.git
