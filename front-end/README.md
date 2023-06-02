@@ -1,70 +1,38 @@
-# Getting Started with Create React App
+# The News Classifier 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- It tells the classification of news articles
+- This project is a front-end application built with React. It utilizes various external libraries and tools for enhanced functionality.
 
-## Available Scripts
+## Installation
 
-In the project directory, you can run:
+- Install the dependencies by running: `npm install`.
 
-### `npm start`
+## Dependencies
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The project relies on the following external libraries and tools:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **@testing-library/jest-dom** (version 5.16.5): A library for testing DOM elements.
+- **@testing-library/react** (version 13.4.0): A library for testing React components.
+- **@testing-library/user-event** (version 13.5.0): A library for simulating user events in tests.
+- **animejs** (version 3.2.1): A powerful JavaScript animation library.
+- **axios** (version 1.4.0): A popular promise-based HTTP client.
+- **firebase** (version 9.22.1): A comprehensive platform for building web and mobile applications.
+- **jquery** (version 3.7.0): A fast and feature-rich JavaScript library.
+- **node-sass** (version 9.0.0): A Node.js library for Sass compilation.
+- **react** (version 18.2.0): A JavaScript library for building user interfaces.
+- **react-dom** (version 18.2.0): A package for working with the DOM in React.
+- **react-router-dom** (version 6.11.2): A routing library for React applications.
+- **react-scripts** (version 5.0.1): A set of scripts and configuration used by Create React App.
+- **semantic-ui-react** (version 2.1.4): A UI component library for React.
+- **web-vitals** (version 2.1.4): A library for measuring web vitals metrics.
 
-### `npm test`
+## Usage
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+To start the development server, run the following command: `npm start`. This will open the application in your default browser.
 
-### `npm run build`
+To build the application for production, use the command: `npm run build`. The optimized and minified files will be available in the `build` directory.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Contributing
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Contributions are welcome! Please read the [Contribution Guidelines](./contribution.md) for more information.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
