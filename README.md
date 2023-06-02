@@ -19,8 +19,6 @@ A service that takes a news article URL, scrapes the article content, and return
 ### Classification Service
 A service that takes the scraped article content and predicts its category using an AI model.
 
-### Data Persistence Service
-A service that stores each classification request and its result in a database and retrieves the history of past requests when needed.
 
 
 
