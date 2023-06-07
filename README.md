@@ -2,7 +2,8 @@
 
 ![Screenshot 2023-06-03 143852](https://github.com/silenteyesoncode/AI-Powered-News-Article-Classifier-with-History/assets/46851135/ded1ee8d-dcb4-4df8-a9a0-247df3d427d0)
 
-# [Project Live](https://jolly-sprinkles-608702.netlify.app)
+# [Project Live](https://jolly-sprinkles-608702.netlify.app
+### [Backend Live](https://my-news-classifier.onrender.com)
 
 ## Auther 
 - [@silenteyesoncode](https://github.com/silenteyesoncode)
