@@ -11,6 +11,8 @@
 The goal of this project is to create a web application that classifies news articles into categories and keeps track of past classification requests. The application should take a news article URL as input, scrape the article content, predict its category using an AI model, store the request and the prediction in a database, and display the predicted category as well as a history of past classification requests.
 
 ## User Interface[(Front-End)](./front-end)
+#### Hosted In [Netlify](https://www.netlify.com/)
+
 ### Home Page
 A landing page with instructions on how to use the application.
 
@@ -18,6 +20,7 @@ A landing page with instructions on how to use the application.
 A form where users can enter a news article URL. After the URL is submitted, the application should display the predicted category as well as a history of past classification requests, including the article URLs and their predicted categories.
 
 ## Server[(Back-End)](./back-end)
+#### Hosted In [Render](https://render.com/)
 ### Scraping Service
 A service that takes a news article URL, scrapes the article content, and returns it.
 
